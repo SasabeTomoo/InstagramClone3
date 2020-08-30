@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :blogs,    only: [:new, :create, :index]
   resources :sessions, only: [:new, :create, :destroy]
   resources :users,    only: [:new, :create, :show]
   resources :feeds do

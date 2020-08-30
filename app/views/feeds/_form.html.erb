@@ -16,9 +16,9 @@
     <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
-    <%= form.label :title %>
+    <%= form.label :タイトル %>
     <%= form.text_field :title %>
-    <%= form.label :content %>
+    <%= form.label :内容 %>
     <%= form.text_field :content %>
   </div>
 
