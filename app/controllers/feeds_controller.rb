@@ -29,6 +29,7 @@ class FeedsController < ApplicationController
   # POST /feeds.json
   def create
     @feed = Feed.new(feed_params)
+    @feed.user_id = current_user.id
 
     respond_to do |format|
       if @feed.save
@@ -67,6 +68,8 @@ class FeedsController < ApplicationController
 
   def confirm
     @feed = Feed.new(feed_params)
+    @feed.user_id = current_user.id
+    render :new if @feed.invalid?
   end
 
   private
@@ -77,6 +80,6 @@ class FeedsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def feed_params
-      params.require(:feed).permit(:image, :image_cache, :title, :content)
+      params.require(:feed).permit(:image, :image_cache, :title, :content, :user_id)
     end
 end
