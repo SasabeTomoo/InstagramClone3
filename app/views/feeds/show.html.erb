@@ -8,6 +8,7 @@
   <strong>Image:</strong>
   <%= image_tag @feed.image.url %>
 </p>
-
-<%= link_to 'Edit', edit_feed_path(@feed) %> |
+<% if logged_in? %>
+  <%= link_to 'Edit', edit_feed_path(@feed) %>
+<% end %>
 <%= link_to 'Back', feeds_path %>

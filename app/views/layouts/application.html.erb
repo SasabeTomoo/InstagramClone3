@@ -15,8 +15,8 @@
     <% if logged_in? %>
       <header>
         <a>画像やコメントを投稿しよう</a>
-        <%= link_to '[一覧]', feeds_path %>
-        <%= link_to '[新規投稿]', new_feed_path %>
+        <%= link_to '[一覧へ]', feeds_path %>
+        <%= link_to '[新規投稿へ]', new_feed_path %>
       </header>
       <%= link_to "Profile", user_path(current_user.id) %>
       <%= link_to "Logout", session_path(current_user.id), method: :delete %>
@@ -24,6 +24,7 @@
     <% else %>
     <header>
       <a>ログインして、画像やコメントを投稿しよう</a>
+      <%= link_to '[一覧へ]', feeds_path %>
     </header>
       <p class="login">現在ログインしていません</p>
       <%= link_to "Sign up", new_user_path %>

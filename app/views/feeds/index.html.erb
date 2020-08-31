@@ -21,13 +21,16 @@
         <td><%= feed.title %></td>
         <td><%= feed.content %></td>
         <td><%= link_to 'Show', feed %></td>
-        <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
-        <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if logged_in? %>
+          <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
+          <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<p><%= link_to '新規投稿へ', new_feed_path %></P>
+<% if logged_in? %>
+  <p><%= link_to '新規投稿へ', new_feed_path %></P>
+<% end %>
