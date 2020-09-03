@@ -1,6 +1,16 @@
-<h4>以下の名前とメールアドレスで登録しています</h4>
+<h4>次の登録をしています</h4>
 <p><%= @user.name %></p>
 <p>メールアドレス：<%= @user.email %></p>
+<h4><% profile_all = Profile.all %></h4>
+    <% profile_all.each do |profile| %>
+    <h4>[プロフィール画像]</h4>
+    <td><%= image_tag profile.image.url %></td>
+    <h4>[ニックネーム]</h4>
+    <td><%= profile.nickname %></td>
+    <h4>[自己紹介]</h4>
+    <td><%= profile.content %></td>
+    <% end %>
+
 
 <% if logged_in? %>
   <p><%= link_to '一覧へ', feeds_path %></p>

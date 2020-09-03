@@ -10,6 +10,9 @@ class FeedsController < ApplicationController
   # GET /feeds/1
   # GET /feeds/1.json
   def show
+    # @feedのカラム：id,title,content,user_id
+    # def current_user
+    #   @current_user ||= User.find_by(id: session[:user_id])
     @favorite = current_user.favorites.find_by(feed_id: @feed.id)
   end
 
@@ -30,6 +33,7 @@ class FeedsController < ApplicationController
   # POST /feeds.json
   def create
     @feed = Feed.new(feed_params)
+    # @feedのカラム：id,title,content,user_id
     @feed.user_id = current_user.id
 
     respond_to do |format|

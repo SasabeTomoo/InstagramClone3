@@ -1,3 +1,10 @@
+<%# def choose_new_or_edit
+  if action_name == 'new' || action_name == 'confirm'
+    confirm_feeds_path
+  elsif action_name == 'edit'
+    feed_path %>
+<%# feed: @feed
+@feed = Feed.new(feed_params) %>
 <% if logged_in? %>
   <%= form_with(model: feed, local: true, url:choose_new_or_edit) do |form| %>
     <% if feed.errors.any? %>
@@ -16,6 +23,7 @@
       <%= form.label :image %>
       <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
       <%= form.file_field :image %>
+      <%# hidden_fieldとすることで、表示はさせずにsubmit時（form_withメソッド）にpostリクエストで値を送ることができる %>
       <%= form.hidden_field :image_cache %>
       <%= form.label :タイトル %>
       <%= form.text_field :title %>

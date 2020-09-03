@@ -6,6 +6,8 @@
 <h4><%= @feed.content %></h4>
 <p>
   <strong>Image:</strong>
+  <!-- publicの次のフォルダに保存されている画像のリンク先"/uploads/feed/image/19/20200821_160028.jpg" -->
+  <!-- @feed = Feed.new(feed_params) -->
   <%= image_tag @feed.image.url %>
 </p>
 <% if logged_in? %>
