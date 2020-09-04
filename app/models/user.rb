@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  has_many :profiles
   has_many :favorites, dependent: :destroy
   has_many :feeds
   has_secure_password
