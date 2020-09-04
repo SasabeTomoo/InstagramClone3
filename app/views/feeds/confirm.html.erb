@@ -11,7 +11,8 @@
   <%= form.submit "投稿する" %>
 <% end %>
 <%= form_with(model:@feed, url:feeds_path, local:true, method:"get") do |form| %>
-  <%# 戻るの際、再度の同じ画像の読み込みは時間がかかるため、画像のみキャッシュに保存する %>
   <%= form.hidden_field :image_cache %>
+  <%= form.hidden_field :title %>
+  <%= form.hidden_field :content %>
   <%= form.submit "戻る", name: "back" %>
 <% end %>
