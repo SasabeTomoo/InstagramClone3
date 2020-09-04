@@ -6,7 +6,7 @@
 <h4>ここに、プロフィールを作ることもできます</h4>
 <p><%= link_to 'プロフィール（新規作成）', new_profile_path %></p>
 <p><%= link_to 'プロフィール（編集）', new_profile_path %></p>
-    <% @profile.each do |profile| %>
+    <% profile_all.each do |profile| %>
     <h4>[プロフィール画像]</h4>
     <td><%= image_tag profile.image.url %></td>
     <h4>[ニックネーム]</h4>
